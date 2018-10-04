@@ -3,49 +3,73 @@
   <head>
     <meta charset="utf-8">
     <title>Resultados candidatos Huaral</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
   </head>
   <body>
-      <div id="login">
-          <h3 class="text-center text-white pt-5">Login form</h3>
-          <div class="container">
-              <div id="login-row" class="row justify-content-center align-items-center">
-                  <div id="login-column" class="col-md-6">
-                      <div id="login-box" class="col-md-12">
-                          <form id="login-form" class="form" action="" method="post">
-                              <h3 class="text-center text-info">Login</h3>
-                              <div class="form-group">
-                                  <label for="username" class="text-info">Username:</label><br>
-                                  <input type="text" name="username" id="username" class="form-control">
-                              </div>
-                              <div class="form-group">
-                                  <label for="password" class="text-info">Password:</label><br>
-                                  <input type="text" name="password" id="password" class="form-control">
-                              </div>
-                              <div class="form-group">
-                                  <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                  <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
-                              </div>
-                              <div id="register-link" class="text-right">
-                                  <a href="#" class="text-info">Register here</a>
-                              </div>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </body>
-
-  <body>
+    <!-- Vista general para usuarios -->
     <div class="generalView">
 
     </div>
+    <div class="container">
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Administrador</button>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <h3 class="text-center text-info">Ingresa a tu cuenta</h3>
+                <div class="form-group">
+                    <label for="username" class="text-info">Email:</label><br>
+                    <input type="text" name="username" id="emailUser" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="text-info">Contraseña:</label><br>
+                    <input type="text" name="password" id="passwordUser" class="form-control">
+                    <span id="messageError"></span>
+                </div>
+                <div class="form-group text-center">
+                  <button class="btn btn-info btn-md" id="loginUser">Ingresar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Termina modal -->
+    </div>
+
+
     <div class="adminView">
 
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBYfFQwq93LLsjxOBQWUD6GlKyjRAJ11vY",
+        authDomain: "project-kickstart.firebaseapp.com",
+        databaseURL: "https://project-kickstart.firebaseio.com",
+        projectId: "project-kickstart",
+        storageBucket: "project-kickstart.appspot.com",
+        messagingSenderId: "250024489610"
+      };
+      firebase.initializeApp(config);
+    </script>
     <script src="src/js/writeData.js"></script>
   </body>
 </html>
