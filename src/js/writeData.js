@@ -5,6 +5,9 @@ document.getElementById('loginUser').addEventListener('click', () => {
     document.getElementById('messageError').innerHTML = "";
     let user = firebase.auth().currentUser;
     console.log(user.uid);
+    firebase.database().ref().child('candidato11').update({
+      votos: 220
+    })
   })
   .catch(function (error) {
     var errorMessage = error.message;
