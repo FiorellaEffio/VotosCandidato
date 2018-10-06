@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+  </head>
+  <body>
+    <div id="adminView">
+     <h1>Ingresa y actualiza los votos por candidato</h1>
+     <div id="candidatesVotes" class="container">
+     </div>
+     <h1>¿Quien va primero?</h1>
+     <button id="generateFirstPlace">Ver</button>
+     <div id="orderCandidates">
+     </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBYfFQwq93LLsjxOBQWUD6GlKyjRAJ11vY",
+        authDomain: "project-kickstart.firebaseapp.com",
+        databaseURL: "https://project-kickstart.firebaseio.com",
+        projectId: "project-kickstart",
+        storageBucket: "project-kickstart.appspot.com",
+        messagingSenderId: "250024489610"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="src/js/admin.js"></script>
+  </body>
+</html>

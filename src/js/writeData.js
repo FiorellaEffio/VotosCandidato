@@ -5,28 +5,8 @@ document.getElementById('loginUser').addEventListener('click', () => {
     document.getElementById('messageError').innerHTML = "";
     let user = firebase.auth().currentUser;
     console.log(user.uid);
-    document.getElementById('generalView').style.display = 'none';
-    document.getElementById('myModal').style.display = 'none';
+    window.location.href = "admin.html";
 
-    document.getElementById('adminView').style.display = 'block';
-    let totalVotes = 0;
-    firebase.database().ref().on("value", function(snapshot) {
-      let fillVotesNumber = Object.keys(snapshot.val());
-      fillVotesNumber.forEach((candidate) => {
-        let candidateObject = snapshot.val()[candidate];
-        totalVotes = totalVotes + candidateObject.votos;
-        console.log(candidateObject.nombre)
-        document.getElementById('candidatesVotes').innerHTML += `
-          <div class="row">
-            <p class="col-md-5" >${candidateObject.nombre}</p>
-            <input id=${candidate+'votes'} value=${candidateObject.votos} class="col-md-1"/>
-            <button id=${candidate} class="btn btn-warning">Actualizar</button>
-          </div>
-        `;
-      })
-      console.log(Object.keys(snapshot.val()));
-
-    });
   })
   .catch(function (error) {
     var errorMessage = error.message;
@@ -35,7 +15,3 @@ document.getElementById('loginUser').addEventListener('click', () => {
     console.log;
   });
 });
-firebase.database().ref().child('candidato10').update({
-  votos: 2280
-})
-document.getElementById('adminView').style.display = 'none';
