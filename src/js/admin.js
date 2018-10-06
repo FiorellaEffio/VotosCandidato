@@ -26,7 +26,7 @@ firebase.database().ref().on("value", function(snapshot) {
          if(typeof(parseInt(votesCounter)) === 'number' && parseInt(votesCounter)>=0) {
            firebase.database().ref().child(btnsCandidate[index].id).update({
              votos: votesCounter,
-             porcentaje: (votesCounter/totalVotes)*100
+             porcentaje: (parseInt(votesCounter)/totalVotes)*100
            })
            document.getElementById('candidatesVotes').innerHTML += '';
            window.location.reload(true);
@@ -49,14 +49,15 @@ document.getElementById('generateFirstPlace').addEventListener('click', ()=> {
 
     })
     messyListCandidate.sort( function(a,b) {
-      return a.porcentaje - b.porcentaje;
+      return a.votos - b.votos;
     });
     messyListCandidate = messyListCandidate.reverse();
     messyListCandidate.forEach(element => {
+      percent = (parseInt(element.votos)/totalVotes)*100;
       document.getElementById('orderCandidates').innerHTML += `
         <div class="row">
           <p class="col-md-5" >${element.nombre}</p>
-          <p class="col-md-3" >${element.porcentaje} %</p>
+          <p class="col-md-3" >${percent} %</p>
         </div>
       `;
     })
